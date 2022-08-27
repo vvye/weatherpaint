@@ -1,22 +1,22 @@
 class Button {
 
     static icons;
+    static backgroundImage;
     x;
     y;
     w;
     iconIndex;
     element;
-    yOffset;
-    maxYOffset;
+    yOffset = 0;
+    maxYOffset = 12;
 
     constructor(x, y, iconIndex, element) {
         this.x = x;
         this.y = y;
-        this.w = 34;
+        this.w = 70;
         this.iconIndex = iconIndex;
         this.element = element;
         this.yOffset = 0;
-        this.maxYOffset = 12;
     }
 
     draw(selected) {
@@ -25,18 +25,9 @@ class Button {
             cursor('pointer');
         }
 
-        if (this.hovered() || selected) {
-            stroke(255);
-            strokeWeight(4);
-            fill(100, 100, 125);
-        } else {
-            noStroke();
-            fill(75, 75, 100);
-        }
-
         if (selected) {
             if (this.yOffset < this.maxYOffset) {
-                this.yOffset += 1;
+                this.yOffset += 1.2;
             }
         } else {
             if (this.yOffset > 0) {
@@ -44,12 +35,15 @@ class Button {
             }
         }
 
-        circle(this.x + this.w / 2, this.y - this.yOffset + this.w / 2, this.w * 1.75);
-        image(Button.icons[this.iconIndex], this.x, this.y - this.yOffset, this.w, this.w);
+        let y = this.y - this.yOffset;
+        let backgroundImage = Button.backgroundImages[selected ? 2 : this.hovered() ? 1 : 0];
+        image(backgroundImage, this.x, y);
+        image(Button.icons[this.iconIndex], this.x + 18, y + 18);
     }
 
     hovered() {
-        return mouseX >= this.x && mouseX <= this.x + this.w && mouseY >= this.y && mouseY <= this.y + this.w;
+        let y = this.y - this.yOffset;
+        return mouseX >= this.x && mouseX <= this.x + this.w && mouseY >= y && mouseY <= y + this.w;
     }
 
 

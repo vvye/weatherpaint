@@ -9,20 +9,20 @@ function preload() {
         loadImage('img/snow.png'),
         loadImage('img/ice.png')
     ];
+    Button.backgroundImages = [
+        loadImage('img/button.png'),
+        loadImage('img/button-hovered.png'),
+        loadImage('img/button-selected.png'),
+    ];
+
     backgroundImage = loadImage('img/background.png');
 }
 
 function setup() {
     let canvas = createCanvas(800, 600);
     canvas.parent('main-section');
-    let context = canvas.elt.getContext('2d');
-    context.imageSmoothingEnabled = false;
-    context.mozImageSmoothingEnabled = false;
-    context.webkitImageSmoothingEnabled = false;
-    context.msImageSmoothingEnabled = false;
-    context.imageSmoothingEnabled = false;
 
-    palette = new Palette(35, height - 65);
+    palette = new Palette(20, height - 85);
 }
 
 function draw() {
