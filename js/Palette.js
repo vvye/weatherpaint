@@ -18,9 +18,9 @@ class Palette {
     initButtons() {
         this.buttons = [
             new Button(this.x, this.y, 0, null),
-            new Button(this.x + 75, this.y, 1, Rain),
-            new Button(this.x + 150, this.y, 2, Snow),
-            new Button(this.x + 225, this.y, 3, Ice),
+            new Button(this.x + 70, this.y, 1, Rain),
+            new Button(this.x + 140, this.y, 2, Snow),
+            new Button(this.x + 210, this.y, 3, Ice),
         ];
     }
 

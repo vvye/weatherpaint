@@ -27,7 +27,7 @@ class Button {
 
         if (this.hovered() || selected) {
             stroke(255);
-            strokeWeight(3);
+            strokeWeight(4);
             fill(100, 100, 125);
         } else {
             noStroke();
