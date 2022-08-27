@@ -1,11 +1,29 @@
 let elements = [];
+let palette;
 
 let selectableElements = [Rain, Snow, Ice];
 let selectedElementIndex = 0;
 
+function preload() {
+    Button.icons = [
+        loadImage('img/sun.png'),
+        loadImage('img/rain.png'),
+        loadImage('img/snow.png'),
+        loadImage('img/ice.png')
+    ];
+}
+
 function setup() {
     let canvas = createCanvas(400, 400);
     canvas.parent('main-section');
+    let context = canvas.elt.getContext('2d');
+    context.imageSmoothingEnabled = false;
+    context.mozImageSmoothingEnabled = false;
+    context.webkitImageSmoothingEnabled = false;
+    context.msImageSmoothingEnabled = false;
+    context.imageSmoothingEnabled = false;
+
+    palette = new Palette(30, height - 60);
 }
 
 function draw() {
@@ -20,16 +38,23 @@ function draw() {
         }
     }
 
+    palette.draw();
+
 }
 
-function keyPressed() {
-    selectedElementIndex = (selectedElementIndex + 1) % selectableElements.length;
+function addElement(x, y) {
+    let element = palette.selectedElement;
+    elements.push(new element(x, y))
 }
 
 function mouseDragged() {
-    elements.push(new selectableElements[selectedElementIndex](mouseX, mouseY));
+    addElement(mouseX, mouseY);
 }
 
 function mouseClicked() {
-    elements.push(new selectableElements[selectedElementIndex](mouseX, mouseY));
+    addElement(mouseX, mouseY);
+}
+
+function mousePressed() {
+    palette.onMousePressed();
 }
