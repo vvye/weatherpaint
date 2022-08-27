@@ -1,8 +1,6 @@
 let elements = [];
 let palette;
-
-let selectableElements = [Rain, Snow, Ice];
-let selectedElementIndex = 0;
+let backgroundImage;
 
 function preload() {
     Button.icons = [
@@ -11,10 +9,11 @@ function preload() {
         loadImage('img/snow.png'),
         loadImage('img/ice.png')
     ];
+    backgroundImage = loadImage('img/background.png');
 }
 
 function setup() {
-    let canvas = createCanvas(400, 400);
+    let canvas = createCanvas(800, 600);
     canvas.parent('main-section');
     let context = canvas.elt.getContext('2d');
     context.imageSmoothingEnabled = false;
@@ -27,7 +26,7 @@ function setup() {
 }
 
 function draw() {
-    background(0);
+    image(backgroundImage, 0, 0, width, height);
     cursor('default');
 
     for (let i = elements.length - 1; i >= 0; i--) {
