@@ -2,7 +2,7 @@ class Element {
 
     x;
     y;
-    lifetime = 2550;
+    lifetime = 3000;
     decaySpeed = 1;
     dead = false;
     seed;

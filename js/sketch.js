@@ -22,7 +22,7 @@ function setup() {
     let canvas = createCanvas(800, 600);
     canvas.parent('main-section');
 
-    palette = new Palette(20, height - 85);
+    palette = new Palette(30, height - 95);
 }
 
 function draw() {
