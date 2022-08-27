@@ -1,6 +1,7 @@
 let elements = [];
 let palette;
 let backgroundImage;
+let mouseWasDragged = false;
 
 function preload() {
     Button.icons = [
@@ -51,13 +52,20 @@ function addElement(x, y) {
 
 function mouseDragged() {
     addElement(mouseX, mouseY);
+    mouseWasDragged = true;
 }
 
 function mouseClicked() {
+    console.log('clicked');
     if (palette.anyButtonHovered()) {
         return;
     }
+    if (palette.selectedElement === Sun && mouseWasDragged) {
+        mouseWasDragged = false;
+        return;
+    }
     addElement(mouseX, mouseY);
+    mouseWasDragged = false;
 }
 
 function mousePressed() {
@@ -65,6 +73,11 @@ function mousePressed() {
 }
 
 function mouseReleased() {
+    for (let i = elements.length - 1; i >= 0; i--) {
+        if (elements[i].dead) {
+            elements.splice(i, 1);
+        }
+    }
     for (let elem of elements) {
         elem.contactedSun = false;
     }
