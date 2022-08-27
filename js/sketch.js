@@ -10,8 +10,21 @@ function setup() {
 function draw() {
     background(0);
 
-    for (let elem of elements) {
+    for (let i = elements.length - 1; i >= 0; i--) {
+        let elem = elements[i];
         elem.update();
         elem.draw();
+        if (elem.dead) {
+            elements.splice(i, 1);
+        }
     }
+
+}
+
+function mouseDragged() {
+    elements.push(new Element(mouseX, mouseY));
+}
+
+function mouseClicked() {
+    elements.push(new Element(mouseX, mouseY));
 }
