@@ -20,7 +20,7 @@ function preload() {
 }
 
 function setup() {
-    let canvas = createCanvas(1024, 768);
+    let canvas = createCanvas(960, 640);
     canvas.parent('main-section');
 
     palette = new Palette(30, height - 95);
