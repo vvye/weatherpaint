@@ -6,6 +6,8 @@ class Palette {
         this.x = x;
         this.y = y;
         this.initButtons();
+        this.selectedElement = Rain;
+        this.buttons[1].yOffset = this.buttons[1].maxYOffset;
     }
 
     draw() {
