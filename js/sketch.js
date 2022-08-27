@@ -29,11 +29,13 @@ function draw() {
     image(backgroundImage, 0, 0, width, height);
     cursor('default');
 
-    for (let i = elements.length - 1; i >= 0; i--) {
-        let elem = elements[i];
+    for (let elem of elements) {
         elem.update();
         elem.draw();
-        if (elem.dead) {
+    }
+
+    for (let i = elements.length - 1; i >= 0; i--) {
+        if (elements[i].dead) {
             elements.splice(i, 1);
         }
     }
