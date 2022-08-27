@@ -51,7 +51,7 @@ function draw() {
     if (palette.anyButtonHovered()) {
         noStroke();
         fill(25);
-        rect(400, height - 60, width - 420, 40);
+        rect(400, height - 60, width - 405, 40);
         fill(255);
         textSize(20);
         text(palette.hoveredElement().description, 420, height - 50, width - 400, 40);
