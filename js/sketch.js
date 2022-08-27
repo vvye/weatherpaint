@@ -1,10 +1,11 @@
 let elements = [];
 
+let selectableElements = [Rain, Snow, Ice];
+let selectedElementIndex = 0;
+
 function setup() {
     let canvas = createCanvas(400, 400);
     canvas.parent('main-section');
-
-    elements.push(new Element(200, 200));
 }
 
 function draw() {
@@ -21,10 +22,14 @@ function draw() {
 
 }
 
+function keyPressed() {
+    selectedElementIndex = (selectedElementIndex + 1) % selectableElements.length;
+}
+
 function mouseDragged() {
-    elements.push(new Element(mouseX, mouseY));
+    elements.push(new selectableElements[selectedElementIndex](mouseX, mouseY));
 }
 
 function mouseClicked() {
-    elements.push(new Element(mouseX, mouseY));
+    elements.push(new selectableElements[selectedElementIndex](mouseX, mouseY));
 }
