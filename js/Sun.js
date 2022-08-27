@@ -20,7 +20,7 @@ class Sun extends Element {
         }
     }
 
-    draw() {
+    drawAsCursor() {
         let padding = 20;
         noFill();
         stroke(230, 230, 0);

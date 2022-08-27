@@ -20,7 +20,7 @@ function preload() {
 }
 
 function setup() {
-    let canvas = createCanvas(800, 600);
+    let canvas = createCanvas(1024, 768);
     canvas.parent('main-section');
 
     palette = new Palette(30, height - 95);
@@ -39,6 +39,11 @@ function draw() {
         if (elements[i].dead) {
             elements.splice(i, 1);
         }
+    }
+
+    if (palette.selectedElement === Sun) {
+        let tempSun = new Sun(mouseX - 20, mouseY - 20);
+        tempSun.drawAsCursor();
     }
 
     palette.draw();
