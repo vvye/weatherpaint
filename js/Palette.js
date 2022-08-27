@@ -44,4 +44,13 @@ class Palette {
         return false;
     }
 
+    hoveredElement() {
+        for (let button of this.buttons) {
+            if (button.hovered()) {
+                return button.element;
+            }
+        }
+        return null;
+    }
+
 }

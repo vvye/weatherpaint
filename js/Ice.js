@@ -1,11 +1,12 @@
 class Ice extends Element {
 
+    static description = 'Hail';
     decaySpeed = 7;
 
     onSunContact(elements) {
         super.onSunContact();
         this.die();
-        let newElement = new Rain(this.x, this.y);
+        let newElement = new Snow(this.x, this.y);
         newElement.lifetime = this.lifetime;
         newElement.contactedSun = true;
         elements.push(newElement);

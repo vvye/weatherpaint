@@ -1,5 +1,6 @@
 class Rain extends Element {
 
+    static description = 'Rain';
     decaySpeed = 2;
 
     onSunContact(elements) {

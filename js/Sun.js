@@ -1,5 +1,6 @@
 class Sun extends Element {
 
+    static description = 'Sun - turns hail into snow, snow into rain, and removes rain.';
     w = 80;
 
     constructor(x, y) {

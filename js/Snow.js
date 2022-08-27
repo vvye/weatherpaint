@@ -1,5 +1,6 @@
 class Snow extends Element {
 
+    static description = 'Snow';
     decaySpeed = 5;
 
     onSunContact(elements) {
