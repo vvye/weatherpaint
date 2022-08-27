@@ -2,6 +2,15 @@ class Snow extends Element {
 
     decaySpeed = 5;
 
+    onSunContact(elements) {
+        super.onSunContact();
+        this.die();
+        let newElement = new Rain(this.x, this.y);
+        newElement.lifetime = this.lifetime;
+        newElement.contactedSun = true;
+        elements.push(newElement);
+    }
+
     draw() {
         noStroke();
         fill(186, 219, 173, this.lifetime);

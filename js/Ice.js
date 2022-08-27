@@ -2,6 +2,15 @@ class Ice extends Element {
 
     decaySpeed = 7;
 
+    onSunContact(elements) {
+        super.onSunContact();
+        this.die();
+        let newElement = new Rain(this.x, this.y);
+        newElement.lifetime = this.lifetime;
+        newElement.contactedSun = true;
+        elements.push(newElement);
+    }
+
     draw() {
         noStroke();
         fill(234, 255, 255, this.lifetime);

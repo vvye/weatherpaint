@@ -5,6 +5,7 @@ class Element {
     lifetime = 3000;
     decaySpeed = 1;
     dead = false;
+    contactedSun = false;
     seed;
 
     constructor(x, y) {
@@ -21,6 +22,10 @@ class Element {
     }
 
     draw() {
+    }
+
+    onSunContact(elements) {
+        this.contactedSun = true;
     }
 
     die() {

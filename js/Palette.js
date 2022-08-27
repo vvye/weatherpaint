@@ -18,7 +18,7 @@ class Palette {
     initButtons() {
         let spacing = 85;
         this.buttons = [
-            new Button(this.x, this.y, 0, null),
+            new Button(this.x, this.y, 0, Sun),
             new Button(this.x + spacing, this.y, 1, Rain),
             new Button(this.x + 2 * spacing, this.y, 2, Snow),
             new Button(this.x + 3 * spacing, this.y, 3, Ice),

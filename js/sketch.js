@@ -30,7 +30,7 @@ function draw() {
     cursor('default');
 
     for (let elem of elements) {
-        elem.update();
+        elem.update(elements);
         elem.draw();
     }
 
@@ -62,4 +62,10 @@ function mouseClicked() {
 
 function mousePressed() {
     palette.onMousePressed();
+}
+
+function mouseReleased() {
+    for (let elem of elements) {
+        elem.contactedSun = false;
+    }
 }

@@ -2,6 +2,11 @@ class Rain extends Element {
 
     decaySpeed = 2;
 
+    onSunContact(elements) {
+        super.onSunContact();
+        this.lifetime = 25;
+    }
+
     draw() {
         noStroke();
         fill(22, 110, 67, this.lifetime);
