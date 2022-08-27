@@ -10,7 +10,8 @@ class Palette {
 
     draw() {
         for (let button of this.buttons) {
-            button.draw();
+            let selected = (this.selectedElement === button.element);
+            button.draw(selected);
         }
     }
 

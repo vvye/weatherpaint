@@ -23,11 +23,12 @@ function setup() {
     context.msImageSmoothingEnabled = false;
     context.imageSmoothingEnabled = false;
 
-    palette = new Palette(30, height - 60);
+    palette = new Palette(35, height - 65);
 }
 
 function draw() {
     background(0);
+    cursor('default');
 
     for (let i = elements.length - 1; i >= 0; i--) {
         let elem = elements[i];

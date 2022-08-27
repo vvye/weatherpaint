@@ -6,20 +6,46 @@ class Button {
     w;
     iconIndex;
     element;
+    yOffset;
+    maxYOffset;
 
     constructor(x, y, iconIndex, element) {
         this.x = x;
         this.y = y;
-        this.w = 50;
+        this.w = 34;
         this.iconIndex = iconIndex;
         this.element = element;
+        this.yOffset = 0;
+        this.maxYOffset = 12;
     }
 
-    draw() {
-        noStroke();
-        fill(75, 75, 100);
-        circle(this.x + this.w / 2, this.y + this.w / 2, this.w * 1.25);
-        image(Button.icons[this.iconIndex], this.x, this.y, this.w, this.w);
+    draw(selected) {
+
+        if (this.hovered()) {
+            cursor('pointer');
+        }
+
+        if (this.hovered() || selected) {
+            stroke(255);
+            strokeWeight(3);
+            fill(100, 100, 125);
+        } else {
+            noStroke();
+            fill(75, 75, 100);
+        }
+
+        if (selected) {
+            if (this.yOffset < this.maxYOffset) {
+                this.yOffset += 1;
+            }
+        } else {
+            if (this.yOffset > 0) {
+                this.yOffset -= 1;
+            }
+        }
+
+        circle(this.x + this.w / 2, this.y - this.yOffset + this.w / 2, this.w * 1.75);
+        image(Button.icons[this.iconIndex], this.x, this.y - this.yOffset, this.w, this.w);
     }
 
     hovered() {
