@@ -16,11 +16,12 @@ class Palette {
     }
 
     initButtons() {
+        let spacing = 70;
         this.buttons = [
             new Button(this.x, this.y, 0, null),
-            new Button(this.x + 70, this.y, 1, Rain),
-            new Button(this.x + 140, this.y, 2, Snow),
-            new Button(this.x + 210, this.y, 3, Ice),
+            new Button(this.x + spacing, this.y, 1, Rain),
+            new Button(this.x + 2 * spacing, this.y, 2, Snow),
+            new Button(this.x + 3 * spacing, this.y, 3, Ice),
         ];
     }
 
@@ -30,6 +31,15 @@ class Palette {
                 this.selectedElement = button.element;
             }
         }
+    }
+
+    anyButtonHovered() {
+        for (let button of this.buttons) {
+            if (button.hovered()) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

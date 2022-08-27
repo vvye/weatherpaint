@@ -54,6 +54,9 @@ function mouseDragged() {
 }
 
 function mouseClicked() {
+    if (palette.anyButtonHovered()) {
+        return;
+    }
     addElement(mouseX, mouseY);
 }
 
